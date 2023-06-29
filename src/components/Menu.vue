@@ -3,6 +3,7 @@
   import { watchSize, setupResizeAndScrollEventListeners } from '../utils'
   import Option from './Option'
   import Tip from './Tip'
+  import { h, Transition } from "vue";
 
   const directionMap = {
     top: 'top',
@@ -300,13 +301,24 @@
     },
 
     render() {
-      return (
-        <div ref="menu-container" class="vue-treeselect__menu-container" style={this.menuContainerStyle}>
-          <transition name="vue-treeselect__menu--transition">
-            {this.renderMenu()}
-          </transition>
-        </div>
+      return h("div",
+        {
+          ref: "menu-container",
+          class: "vue-treeselect__menu-container",
+          style: this.menuContainerStyle
+        },
+        h(Transition,
+          {
+            name: "vue-treeselect__menu--transition"
+          },
+          this.renderMenu()
+        )
       )
+        // <div ref="menu-container" class="vue-treeselect__menu-container" style={this.menuContainerStyle}>
+        //   <transition name="vue-treeselect__menu--transition">
+        //     {this.renderMenu()}
+        //   </transition>
+        // </div>
     },
   }
 </script>

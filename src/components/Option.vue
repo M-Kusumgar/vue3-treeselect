@@ -3,6 +3,7 @@
   import { onLeftClick } from '../utils'
   import Tip from './Tip'
   import ArrowIcon from './icons/Arrow'
+  import { h, Transition } from "vue"
 
   let arrowPlaceholder, checkMark, minusMark
 
@@ -80,11 +81,30 @@
           }
 
           return (
-            <div class="vue-treeselect__option-arrow-container" onMousedown={this.handleMouseDownOnArrow}>
-              <transition name="vue-treeselect__option-arrow--prepare" appear={true}>
-                <ArrowIcon class={arrowClass} />
-              </transition>
-            </div>
+            h("div",
+              {
+                class: "vue-treeselect__option-arrow-container",
+                onMousedown() {
+                  this.handleMouseDownOnArrow()
+                }
+              },
+              h(Transition,
+                {
+                  name: "vue-treeselect__option-arrow--prepare",
+                  appear: true
+                },
+                h(ArrowIcon,
+                  {
+                    class: arrowClass
+                  }
+                )
+              )
+            )
+            // <div class="vue-treeselect__option-arrow-container" onMousedown={this.handleMouseDownOnArrow}>
+            //   <transition name="vue-treeselect__option-arrow--prepare" appear={true}>
+            //     <ArrowIcon class={arrowClass} />
+            //   </transition>
+            // </div>
           )
         }
 
@@ -271,11 +291,19 @@
       return (
         <div class={listItemClass}>
           {this.renderOption()}
-          {node.isBranch ? (
+          {node.isBranch ? 
+          h(Transition,
+            {
+              name: "vue-treeselect__list--transition"
+            },
+            this.renderSubOptionsList()
+          )
+          : ''}
+          {/* (
             <transition name="vue-treeselect__list--transition">
               {this.renderSubOptionsList()}
             </transition>
-          ) : ''}
+          ) */}
         </div>
       )
     },
