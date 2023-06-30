@@ -1,5 +1,5 @@
 <script>
-  import {createApp} from 'vue'
+  import {createApp, defineComponent} from 'vue'
   import { watchSize, setupResizeAndScrollEventListeners, find } from '../utils'
   import Menu from './Menu'
 
@@ -132,7 +132,7 @@
 
   let placeholder
 
-  export default {
+  export default defineComponent({
     name: 'vue-treeselect--menu-portal',
 
     created() {
@@ -180,5 +180,5 @@
 
       return placeholder
     },
-  }
+  })
 </script>

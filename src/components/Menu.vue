@@ -3,7 +3,7 @@
   import { watchSize, setupResizeAndScrollEventListeners } from '../utils'
   import Option from './Option'
   import Tip from './Tip'
-  import { h, Transition } from "vue";
+  import { defineComponent, h, Transition } from "vue";
 
   const directionMap = {
     top: 'top',
@@ -12,7 +12,7 @@
     below: 'bottom',
   }
 
-  export default {
+  export default defineComponent({
     name: 'vue-treeselect--menu',
     inject: [ 'instance' ],
 
@@ -320,5 +320,5 @@
         //   </transition>
         // </div>
     },
-  }
+  })
 </script>

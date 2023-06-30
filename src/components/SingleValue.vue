@@ -13,7 +13,7 @@
         const customValueLabelRenderer = instance.$slots['value-label']
         return customValueLabelRenderer
           ? customValueLabelRenderer({ node })
-          : node.label
+          : node.raw.label
       },
     },
     render() {

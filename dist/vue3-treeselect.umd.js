@@ -8121,7 +8121,7 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
       var customValueLabelRenderer = instance.$slots['value-label'];
       return customValueLabelRenderer ? customValueLabelRenderer({
         node: node
-      }) : node.label;
+      }) : node.raw.label;
     }
   },
   render: function render() {
@@ -8344,10 +8344,11 @@ const Arrow_exports_ = /*#__PURE__*/exportHelper_default()(Arrowvue_type_script_
 
 
 
+
 function Controlvue_type_script_lang_js_isSlot(s) {
   return typeof s === 'function' || Object.prototype.toString.call(s) === '[object Object]' && !Object(external_commonjs_vue_commonjs2_vue_root_Vue_["isVNode"])(s);
 }
-/* harmony default export */ var Controlvue_type_script_lang_js = ({
+/* harmony default export */ var Controlvue_type_script_lang_js = (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["defineComponent"])({
   name: 'vue-treeselect--control',
   inject: ['instance'],
   computed: {
@@ -8475,7 +8476,7 @@ function Controlvue_type_script_lang_js_isSlot(s) {
       "ref": "value-container"
     }, null), this.renderX(), this.renderArrow()]);
   }
-});
+}));
 // CONCATENATED MODULE: ./src/components/Control.vue
 
 
@@ -8993,7 +8994,7 @@ var directionMap = {
   above: 'top',
   below: 'bottom'
 };
-/* harmony default export */ var Menuvue_type_script_lang_js = ({
+/* harmony default export */ var Menuvue_type_script_lang_js = (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["defineComponent"])({
   name: 'vue-treeselect--menu',
   inject: ['instance'],
   computed: {
@@ -9270,7 +9271,7 @@ var directionMap = {
     //   </transition>
     // </div>
   }
-});
+}));
 // CONCATENATED MODULE: ./src/components/Menu.vue
 
 
@@ -9399,7 +9400,7 @@ var PortalTarget = {
   }
 };
 var placeholder;
-/* harmony default export */ var MenuPortalvue_type_script_lang_js = ({
+/* harmony default export */ var MenuPortalvue_type_script_lang_js = (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["defineComponent"])({
   name: 'vue-treeselect--menu-portal',
   created: function created() {
     this.portalTarget = null;
@@ -9438,7 +9439,7 @@ var placeholder;
     }, null);
     return placeholder;
   }
-});
+}));
 // CONCATENATED MODULE: ./src/components/MenuPortal.vue
 
 

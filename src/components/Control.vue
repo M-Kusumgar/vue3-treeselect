@@ -4,8 +4,9 @@
   import MultiValue from './MultiValue'
   import DeleteIcon from './icons/Delete'
   import ArrowIcon from './icons/Arrow'
+import { defineComponent } from 'vue'
 
-  export default {
+  export default defineComponent({
     name: 'vue-treeselect--control',
     inject: [ 'instance' ],
 
@@ -149,5 +150,5 @@
         </div>
       )
     },
-  }
+  })
 </script>
