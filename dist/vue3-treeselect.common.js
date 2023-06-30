@@ -8105,12 +8105,15 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
 /* harmony default export */ var SingleValuevue_type_script_lang_js = ({
   name: 'vue-treeselect--single-value',
   inject: ['instance'],
-  computed: {
+  data: function data() {
+    singleValue: "";
+  },
+  methods: {
     renderSingleValueLabel: function renderSingleValueLabel() {
       var instance = this.instance;
       var node = instance.selectedNodes[0];
       var customValueLabelRenderer = instance.$slots['value-label'];
-      return customValueLabelRenderer ? customValueLabelRenderer({
+      this.singleValue = customValueLabelRenderer ? customValueLabelRenderer({
         node: node
       }) : node.label;
     }
@@ -8122,9 +8125,15 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
     var shouldShowValue = instance.hasValue && !instance.trigger.searchQuery;
     return renderValueContainer([shouldShowValue && Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", {
       "class": "vue-treeselect__single-value"
-    }, [this.renderSingleValueLabel]), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(Placeholder, null, null), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(Input, {
+    }, [this.singleValue]), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(Placeholder, null, null), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(Input, {
       "ref": "input"
     }, null)]);
+  },
+  beforeMount: function beforeMount() {
+    this.renderSingleValueLabel();
+  },
+  beforeUpdate: function beforeUpdate() {
+    this.renderSingleValueLabel();
   }
 });
 // CONCATENATED MODULE: ./src/components/SingleValue.vue
@@ -8752,7 +8761,7 @@ var Option = {
       }, [this.renderSubOptions(), this.renderNoChildrenTip(), this.renderLoadingChildrenTip(), this.renderLoadingChildrenErrorTip()]);
     },
     renderArrow: function renderArrow() {
-      // var h = this.$createElement;
+      var h = this.$createElement;
       var instance = this.instance,
         node = this.node;
       if (instance.shouldFlattenOptions && this.shouldShow) return null;
