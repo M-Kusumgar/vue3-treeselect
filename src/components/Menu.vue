@@ -311,7 +311,7 @@
           {
             name: "vue-treeselect__menu--transition"
           },
-          this.renderMenu()
+          this.renderMenu
         )
       )
         // <div ref="menu-container" class="vue-treeselect__menu-container" style={this.menuContainerStyle}>
