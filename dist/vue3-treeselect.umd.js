@@ -8111,11 +8111,14 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
 
 
 
-/* harmony default export */ var SingleValuevue_type_script_lang_js = ({
+
+/* harmony default export */ var SingleValuevue_type_script_lang_js = (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["defineComponent"])({
   name: 'vue-treeselect--single-value',
   inject: ['instance'],
   data: function data() {
-    singleValue: "";
+    return {
+      singleValue: ""
+    };
   },
   methods: {
     renderSingleValueLabel: function renderSingleValueLabel() {
@@ -8138,13 +8141,10 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
       "ref": "input"
     }, null)]);
   },
-  mounted: function mounted() {
-    this.renderSingleValueLabel();
-  },
   updated: function updated() {
     this.renderSingleValueLabel();
   }
-});
+}));
 // CONCATENATED MODULE: ./src/components/SingleValue.vue
 
 

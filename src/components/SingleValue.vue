@@ -1,12 +1,15 @@
 <script>
-  import Input from './Input'
+  import { defineComponent } from 'vue'
+import Input from './Input'
   import Placeholder from './Placeholder'
 
-  export default {
+  export default defineComponent({
     name: 'vue-treeselect--single-value',
     inject: [ 'instance' ],
     data() {
-      singleValue: ""
+      return {
+        singleValue: ""
+      }
     },
     methods: {
       renderSingleValueLabel() {
@@ -33,11 +36,8 @@
         <Input ref="input" />,
       ])
     },
-    mounted() {
-      this.renderSingleValueLabel()
-    },
     updated() {
       this.renderSingleValueLabel()
     }
-  }
+  })
 </script>
