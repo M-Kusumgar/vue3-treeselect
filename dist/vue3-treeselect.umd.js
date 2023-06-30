@@ -8115,22 +8115,17 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
 /* harmony default export */ var SingleValuevue_type_script_lang_js = (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["defineComponent"])({
   name: 'vue-treeselect--single-value',
   inject: ['instance'],
-  data: function data() {
-    return {
-      singleValue: ""
-    };
-  },
   methods: {
     renderSingleValueLabel: function renderSingleValueLabel() {
       var instance = this.instance;
       var node = instance.selectedNodes[0];
       var customValueLabelRenderer = instance.$slots['value-label'];
       if (customValueLabelRenderer) {
-        this.singleValue = customValueLabelRenderer({
+        return customValueLabelRenderer({
           node: node
         });
       } else {
-        this.singleValue = (node === null || node === void 0 ? void 0 : node.label) || "";
+        return node !== null && node !== void 0 && node.label ? node.label : null;
       }
     }
   },
@@ -8141,15 +8136,9 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
     var shouldShowValue = instance.hasValue && !instance.trigger.searchQuery;
     return renderValueContainer([shouldShowValue && Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", {
       "class": "vue-treeselect__single-value"
-    }, [this.singleValue]), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(Placeholder, null, null), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(Input, {
+    }, [this.renderSingleValueLabel()]), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(Placeholder, null, null), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(Input, {
       "ref": "input"
     }, null)]);
-  },
-  mounted: function mounted() {
-    this.renderSingleValueLabel();
-  },
-  updated: function updated() {
-    this.renderSingleValueLabel();
   }
 }));
 // CONCATENATED MODULE: ./src/components/SingleValue.vue
@@ -8482,15 +8471,22 @@ function Controlvue_type_script_lang_js_isSlot(s) {
     }
   },
   render: function render() {
-    var h = arguments[0];
+    var _this = this;
     var instance = this.instance;
     var ValueContainer = instance.single ? SingleValue : MultiValue;
-    return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", {
-      "class": "vue-treeselect__control",
-      "onMousedown": instance.handleMouseDown
-    }, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(ValueContainer, {
-      "ref": "value-container"
-    }, null), this.renderX(), this.renderArrow()]);
+    return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])("div", {
+      class: "vue-treeselect__control",
+      onMousedown: instance.handleMouseDown
+    }, function () {
+      return [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(ValueContainer, {
+        ref: "value-container"
+      }), _this.renderX(), _this.renderArrow()];
+    });
+    // <div class="vue-treeselect__control" onMousedown={instance.handleMouseDown}>
+    //   <ValueContainer ref="value-container"/>
+    //   {this.renderX()}
+    //   {this.renderArrow()}
+    // </div>
   }
 }));
 // CONCATENATED MODULE: ./src/components/Control.vue

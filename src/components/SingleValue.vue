@@ -6,11 +6,6 @@
   export default defineComponent({
     name: 'vue-treeselect--single-value',
     inject: [ 'instance' ],
-    data() {
-      return {
-        singleValue: ""
-      }
-    },
     methods: {
       renderSingleValueLabel() {
         const { instance } = this
@@ -19,9 +14,9 @@
         const customValueLabelRenderer = instance.$slots['value-label']
 
         if (customValueLabelRenderer) {
-          this.singleValue = customValueLabelRenderer({ node })
+          return customValueLabelRenderer({ node })
         } else {
-          this.singleValue = node?.label || ""
+          return node?.label ? node.label : null
         }
       },
     },
@@ -32,18 +27,12 @@
       return renderValueContainer([
         shouldShowValue && (
           <div class="vue-treeselect__single-value">
-            { this.singleValue }
+            { this.renderSingleValueLabel() }
           </div>
         ),
         <Placeholder />,
         <Input ref="input" />,
       ])
     },
-    mounted() {
-      this.renderSingleValueLabel()
-    },
-    updated() {
-      this.renderSingleValueLabel()
-    }
   })
 </script>
