@@ -8116,8 +8116,12 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
   name: 'vue-treeselect--single-value',
   inject: ['instance'],
   data: function data() {
+    var instance = this.instance;
+    var node = instance.selectedNodes[0];
+    var nodeLabel = node === null || node === void 0 ? void 0 : node.label;
     return {
-      singleValue: ""
+      singleValue: "",
+      nodeLabel: nodeLabel
     };
   },
   methods: {
@@ -8125,9 +8129,13 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
       var instance = this.instance;
       var node = instance.selectedNodes[0];
       var customValueLabelRenderer = instance.$slots['value-label'];
-      this.singleValue = customValueLabelRenderer ? customValueLabelRenderer({
-        node: node
-      }) : node.label;
+      if (customValueLabelRenderer) {
+        this.singleValue = customValueLabelRenderer({
+          node: node
+        });
+      } else {
+        this.singleValue = (node === null || node === void 0 ? void 0 : node.label) || "";
+      }
     }
   },
   render: function render() {
@@ -8141,8 +8149,13 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
       "ref": "input"
     }, null)]);
   },
-  updated: function updated() {
-    this.renderSingleValueLabel();
+  watch: {
+    nodeLabel: {
+      handler: function handler(newNode, oldNode) {
+        this.renderSingleValueLabel();
+      },
+      deep: true
+    }
   }
 }));
 // CONCATENATED MODULE: ./src/components/SingleValue.vue

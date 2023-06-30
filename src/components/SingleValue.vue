@@ -7,8 +7,13 @@ import Input from './Input'
     name: 'vue-treeselect--single-value',
     inject: [ 'instance' ],
     data() {
+      const { instance } = this
+      const node = instance.selectedNodes[0]
+      const nodeLabel = node?.label
+
       return {
-        singleValue: ""
+        singleValue: "",
+        nodeLabel
       }
     },
     methods: {
@@ -17,9 +22,12 @@ import Input from './Input'
         const node = instance.selectedNodes[0]
 
         const customValueLabelRenderer = instance.$slots['value-label']
-        this.singleValue = customValueLabelRenderer
-          ? customValueLabelRenderer({ node })
-          : node.label
+
+        if (customValueLabelRenderer) {
+          this.singleValue = customValueLabelRenderer({ node })
+        } else {
+          this.singleValue = node?.label || ""
+        }
       },
     },
     render() {
@@ -36,8 +44,13 @@ import Input from './Input'
         <Input ref="input" />,
       ])
     },
-    updated() {
-      this.renderSingleValueLabel()
+    watch: {
+      nodeLabel: {
+        handler: function (newNode, oldNode) {
+          this.renderSingleValueLabel()
+        },
+        deep: true
+      }
     }
   })
 </script>
