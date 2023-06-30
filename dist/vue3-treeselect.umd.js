@@ -8272,6 +8272,7 @@ const MultiValueItem_exports_ = MultiValueItemvue_type_script_lang_js;
     }
   },
   render: function render() {
+    var _this = this;
     var renderValueContainer = this.$parent.renderValueContainer;
     // const transitionGroupProps = {
     //   props: {
@@ -8286,12 +8287,14 @@ const MultiValueItem_exports_ = MultiValueItemvue_type_script_lang_js;
       tag: "div",
       name: "vue-treeselect__multi-value-item--transition",
       appear: true
-    }, [this.renderMultiValueItems(), this.renderExceedLimitTip(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(Placeholder, {
-      key: "placeholder"
-    }), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(Input, {
-      ref: "input",
-      key: "input"
-    })])
+    }, function () {
+      return [_this.renderMultiValueItems(), _this.renderExceedLimitTip(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(Placeholder, {
+        key: "placeholder"
+      }), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(Input, {
+        ref: "input",
+        key: "input"
+      })];
+    })
     // <transition-group class="vue-treeselect__multi-value" tag="div" name="vue-treeselect__multi-value-item--transition" appear={true} >
     //   {this.renderMultiValueItems()}
     //   {this.renderExceedLimitTip()}
@@ -8774,12 +8777,16 @@ var Option = {
           onMousedown: function onMousedown() {
             this.handleMouseDownOnArrow();
           }
-        }, h(external_commonjs_vue_commonjs2_vue_root_Vue_["Transition"], {
-          name: "vue-treeselect__option-arrow--prepare",
-          appear: true
-        }, h(Arrow, {
-          class: arrowClass
-        })))
+        }, function () {
+          return h(external_commonjs_vue_commonjs2_vue_root_Vue_["Transition"], {
+            name: "vue-treeselect__option-arrow--prepare",
+            appear: true
+          }, function () {
+            return h(Arrow, {
+              class: arrowClass
+            });
+          });
+        })
         // <div class="vue-treeselect__option-arrow-container" onMousedown={this.handleMouseDownOnArrow}>
         //   <transition name="vue-treeselect__option-arrow--prepare" appear={true}>
         //     <ArrowIcon class={arrowClass} />
@@ -9257,13 +9264,16 @@ var directionMap = {
     }
   },
   render: function render() {
+    var _this = this;
     return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])("div", {
       ref: "menu-container",
       class: "vue-treeselect__menu-container",
       style: this.menuContainerStyle
-    }, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(external_commonjs_vue_commonjs2_vue_root_Vue_["Transition"], {
-      name: "vue-treeselect__menu--transition"
-    }, this.renderMenu()));
+    }, function () {
+      return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(external_commonjs_vue_commonjs2_vue_root_Vue_["Transition"], {
+        name: "vue-treeselect__menu--transition"
+      }, _this.renderMenu);
+    });
     // <div ref="menu-container" class="vue-treeselect__menu-container" style={this.menuContainerStyle}>
     //   <transition name="vue-treeselect__menu--transition">
     //     {this.renderMenu()}
