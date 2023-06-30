@@ -1,6 +1,6 @@
 <script>
   import { defineComponent } from 'vue'
-import Input from './Input'
+  import Input from './Input'
   import Placeholder from './Placeholder'
 
   export default defineComponent({
@@ -25,13 +25,6 @@ import Input from './Input'
         }
       },
     },
-    computed: {
-      nodeLabel() {
-        const { instance } = this
-        const node = instance.selectedNodes[0]
-        return node?.label
-      }
-    },
     render() {
       const { instance, $parent: { renderValueContainer } } = this
       const shouldShowValue = instance.hasValue && !instance.trigger.searchQuery
@@ -46,13 +39,11 @@ import Input from './Input'
         <Input ref="input" />,
       ])
     },
-    watch: {
-      nodeLabel: {
-        handler: function (newNode) {
-          this.renderSingleValueLabel()
-        },
-        deep: true
-      }
+    mounted() {
+      this.renderSingleValueLabel()
+    },
+    updated() {
+      this.renderSingleValueLabel()
     }
   })
 </script>
