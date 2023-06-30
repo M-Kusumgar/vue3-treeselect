@@ -8105,14 +8105,14 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
 /* harmony default export */ var SingleValuevue_type_script_lang_js = ({
   name: 'vue-treeselect--single-value',
   inject: ['instance'],
-  methods: {
+  computed: {
     renderSingleValueLabel: function renderSingleValueLabel() {
       var instance = this.instance;
       var node = instance.selectedNodes[0];
       var customValueLabelRenderer = instance.$slots['value-label'];
       return customValueLabelRenderer ? customValueLabelRenderer({
         node: node
-      }) : node.raw.label;
+      }) : node.label;
     }
   },
   render: function render() {
@@ -8122,7 +8122,7 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
     var shouldShowValue = instance.hasValue && !instance.trigger.searchQuery;
     return renderValueContainer([shouldShowValue && Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", {
       "class": "vue-treeselect__single-value"
-    }, [this.renderSingleValueLabel()]), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(Placeholder, null, null), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(Input, {
+    }, [this.renderSingleValueLabel]), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(Placeholder, null, null), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(Input, {
       "ref": "input"
     }, null)]);
   }
