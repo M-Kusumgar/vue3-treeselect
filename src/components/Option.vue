@@ -88,12 +88,12 @@
                   this.handleMouseDownOnArrow()
                 }
               },
-              () => h(Transition,
+              h(Transition,
                 {
                   name: "vue-treeselect__option-arrow--prepare",
                   appear: true
                 },
-                () => h(ArrowIcon,
+                h(ArrowIcon,
                   {
                     class: arrowClass
                   }
@@ -296,7 +296,7 @@
             {
               name: "vue-treeselect__list--transition"
             },
-            this.renderSubOptionsList()
+            this.renderSubOptionsList
           )
           : ''}
           {/* (

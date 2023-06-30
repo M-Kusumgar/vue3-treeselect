@@ -52,7 +52,7 @@
             name: "vue-treeselect__multi-value-item--transition",
             appear: true
           },
-          () => [
+          [
             this.renderMultiValueItems(),
             this.renderExceedLimitTip(),
             h(Placeholder, {key: "placeholder"}),

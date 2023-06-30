@@ -307,7 +307,7 @@
           class: "vue-treeselect__menu-container",
           style: this.menuContainerStyle
         },
-        () => h(Transition,
+        h(Transition,
           {
             name: "vue-treeselect__menu--transition"
           },
