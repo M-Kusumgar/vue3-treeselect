@@ -8464,12 +8464,15 @@ function Controlvue_type_script_lang_js_isSlot(s) {
   render: function render() {
     var _this = this;
     var instance = this.instance;
-    var ValueContainer = instance.single ? SingleValue : MultiValue;
     return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])("div", {
       class: "vue-treeselect__control",
-      onMousedown: instance.handleMouseDown
+      onMousedown: function onMousedown() {
+        instance.handleMouseDown();
+      }
     }, function () {
-      return [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(ValueContainer, {
+      return [instance.single ? Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(SingleValue, {
+        ref: "value-container"
+      }) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(MultiValue, {
         ref: "value-container"
       }), _this.renderX(), _this.renderArrow()];
     });

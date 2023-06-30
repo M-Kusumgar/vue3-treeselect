@@ -140,16 +140,17 @@ import { defineComponent, h } from 'vue'
 
     render() {
       const { instance } = this
-      const ValueContainer = instance.single ? SingleValue : MultiValue
 
       return h(
         "div",
         {
           class: "vue-treeselect__control",
-          onMousedown: instance.handleMouseDown
+          onMousedown() {
+            instance.handleMouseDown()
+          }
         },
         () => [
-          h(ValueContainer, {ref: "value-container"}),
+          instance.single ? h(SingleValue, {ref: "value-container"}) : h(MultiValue, {ref: "value-container"}),
           this.renderX(),
           this.renderArrow()
         ]
