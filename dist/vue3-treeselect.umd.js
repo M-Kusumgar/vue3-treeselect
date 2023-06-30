@@ -8116,12 +8116,8 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
   name: 'vue-treeselect--single-value',
   inject: ['instance'],
   data: function data() {
-    var instance = this.instance;
-    var node = instance.selectedNodes[0];
-    var nodeLabel = node === null || node === void 0 ? void 0 : node.label;
     return {
-      singleValue: "",
-      nodeLabel: nodeLabel
+      singleValue: ""
     };
   },
   methods: {
@@ -8138,6 +8134,13 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
       }
     }
   },
+  computed: {
+    nodeLabel: function nodeLabel() {
+      var instance = this.instance;
+      var node = instance.selectedNodes[0];
+      return node === null || node === void 0 ? void 0 : node.label;
+    }
+  },
   render: function render() {
     var h = arguments[0];
     var instance = this.instance,
@@ -8151,7 +8154,7 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
   },
   watch: {
     nodeLabel: {
-      handler: function handler(newNode, oldNode) {
+      handler: function handler(newNode) {
         this.renderSingleValueLabel();
       },
       deep: true
