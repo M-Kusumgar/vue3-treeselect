@@ -33,10 +33,10 @@
         <Input ref="input" />,
       ])
     },
-    beforeMount() {
+    mounted() {
       this.renderSingleValueLabel()
     },
-    beforeUpdate() {
+    updated() {
       this.renderSingleValueLabel()
     }
   }

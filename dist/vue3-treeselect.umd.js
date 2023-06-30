@@ -8138,10 +8138,10 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
       "ref": "input"
     }, null)]);
   },
-  beforeMount: function beforeMount() {
+  mounted: function mounted() {
     this.renderSingleValueLabel();
   },
-  beforeUpdate: function beforeUpdate() {
+  updated: function updated() {
     this.renderSingleValueLabel();
   }
 });
