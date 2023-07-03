@@ -81,30 +81,30 @@
           }
 
           return (
-            h("div",
-              {
-                class: "vue-treeselect__option-arrow-container",
-                onMousedown() {
-                  this.handleMouseDownOnArrow()
-                }
-              },
-              h(Transition,
-                {
-                  name: "vue-treeselect__option-arrow--prepare",
-                  appear: true
-                },
-                h(ArrowIcon,
-                  {
-                    class: arrowClass
-                  }
-                )
-              )
-            )
-            // <div class="vue-treeselect__option-arrow-container" onMousedown={this.handleMouseDownOnArrow}>
-            //   <transition name="vue-treeselect__option-arrow--prepare" appear={true}>
-            //     <ArrowIcon class={arrowClass} />
-            //   </transition>
-            // </div>
+            // h("div",
+            //   {
+            //     class: "vue-treeselect__option-arrow-container",
+            //     onMousedown() {
+            //       this.handleMouseDownOnArrow()
+            //     }
+            //   },
+            //   h(Transition,
+            //     {
+            //       name: "vue-treeselect__option-arrow--prepare",
+            //       appear: true
+            //     },
+            //     h(ArrowIcon,
+            //       {
+            //         class: arrowClass
+            //       }
+            //     )
+            //   )
+            // )
+            <div class="vue-treeselect__option-arrow-container" onMousedown={this.handleMouseDownOnArrow}>
+              <div name="vue-treeselect__option-arrow--prepare">
+                <ArrowIcon class={arrowClass} />
+              </div>
+            </div>
           )
         }
 

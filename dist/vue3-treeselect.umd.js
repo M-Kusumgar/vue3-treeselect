@@ -8775,23 +8775,35 @@ var Option = {
           'vue-treeselect__option-arrow': true,
           'vue-treeselect__option-arrow--rotated': this.shouldExpand
         };
-        return h("div", {
-          class: "vue-treeselect__option-arrow-container",
-          onMousedown: function onMousedown() {
-            this.handleMouseDownOnArrow();
-          }
-        }, h(external_commonjs_vue_commonjs2_vue_root_Vue_["Transition"], {
-          name: "vue-treeselect__option-arrow--prepare",
-          appear: true
-        }, h(Arrow, {
-          class: arrowClass
-        })))
-        // <div class="vue-treeselect__option-arrow-container" onMousedown={this.handleMouseDownOnArrow}>
-        //   <transition name="vue-treeselect__option-arrow--prepare" appear={true}>
-        //     <ArrowIcon class={arrowClass} />
-        //   </transition>
-        // </div>
-        ;
+        return (
+          // h("div",
+          //   {
+          //     class: "vue-treeselect__option-arrow-container",
+          //     onMousedown() {
+          //       this.handleMouseDownOnArrow()
+          //     }
+          //   },
+          //   h(Transition,
+          //     {
+          //       name: "vue-treeselect__option-arrow--prepare",
+          //       appear: true
+          //     },
+          //     h(ArrowIcon,
+          //       {
+          //         class: arrowClass
+          //       }
+          //     )
+          //   )
+          // )
+          Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", {
+            "class": "vue-treeselect__option-arrow-container",
+            "onMousedown": this.handleMouseDownOnArrow
+          }, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", {
+            "name": "vue-treeselect__option-arrow--prepare"
+          }, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(Arrow, {
+            "class": arrowClass
+          }, null)])])
+        );
       }
 
       // For leaf nodes, we render a placeholder to keep its label aligned to
