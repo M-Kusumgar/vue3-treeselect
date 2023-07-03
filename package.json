@@ -1,6 +1,6 @@
 {
   "name": "@m-kusumgar/vue3-treeselect",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "Fork from megafetis' vue3-treeselect",
   "main": "dist/vue3-treeselect.common.js",
   "unpkg": "dist/vue3-treeselect.umd.js",

@@ -16,7 +16,7 @@
         if (customValueLabelRenderer) {
           return customValueLabelRenderer({ node })
         } else {
-          return node?.label ? node.label : null
+          return node?.label || null
         }
       },
     },

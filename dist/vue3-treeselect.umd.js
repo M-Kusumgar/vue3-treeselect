@@ -5552,9 +5552,9 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader-v16/dist/templateLoader.js??ref--7!./node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/vue-loader-v16/dist??ref--1-1!./src/components/Treeselect.vue?vue&type=template&id=a93800e4
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/vue-loader-v16/dist/templateLoader.js??ref--7!./node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/vue-loader-v16/dist??ref--1-1!./src/components/Treeselect.vue?vue&type=template&id=4fc9e2c2
 
-function Treeselectvue_type_template_id_a93800e4_render(_ctx, _cache, $props, $setup, $data, $options) {
+function Treeselectvue_type_template_id_4fc9e2c2_render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_HiddenFields = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["resolveComponent"])("HiddenFields");
   var _component_Control = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["resolveComponent"])("Control");
   var _component_MenuPortal = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["resolveComponent"])("MenuPortal");
@@ -8125,7 +8125,7 @@ const Placeholder_exports_ = Placeholdervue_type_script_lang_js;
           node: node
         });
       } else {
-        return node !== null && node !== void 0 && node.label ? node.label : null;
+        return (node === null || node === void 0 ? void 0 : node.label) || null;
       }
     }
   },
@@ -8471,25 +8471,15 @@ function Controlvue_type_script_lang_js_isSlot(s) {
     }
   },
   render: function render() {
-    var _this = this;
+    var h = arguments[0];
     var instance = this.instance;
-    return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])("div", {
-      class: "vue-treeselect__control",
-      onMousedown: function onMousedown() {
-        instance.handleMouseDown();
-      }
-    }, function () {
-      return [instance.single ? Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(SingleValue, {
-        ref: "value-container"
-      }) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(MultiValue, {
-        ref: "value-container"
-      }), _this.renderX(), _this.renderArrow()];
-    });
-    // <div class="vue-treeselect__control" onMousedown={instance.handleMouseDown}>
-    //   <ValueContainer ref="value-container"/>
-    //   {this.renderX()}
-    //   {this.renderArrow()}
-    // </div>
+    var ValueContainer = instance.single ? SingleValue : MultiValue;
+    return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", {
+      "class": "vue-treeselect__control",
+      "onMousedown": instance.handleMouseDown
+    }, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(ValueContainer, {
+      "ref": "value-container"
+    }, null), this.renderX(), this.renderArrow()]);
   }
 }));
 // CONCATENATED MODULE: ./src/components/Control.vue
@@ -9503,7 +9493,7 @@ const MenuPortal_exports_ = MenuPortalvue_type_script_lang_js;
 
 
 
-const Treeselect_exports_ = /*#__PURE__*/exportHelper_default()(Treeselectvue_type_script_lang_js, [['render',Treeselectvue_type_template_id_a93800e4_render]])
+const Treeselect_exports_ = /*#__PURE__*/exportHelper_default()(Treeselectvue_type_script_lang_js, [['render',Treeselectvue_type_template_id_4fc9e2c2_render]])
 
 /* harmony default export */ var Treeselect = (Treeselect_exports_);
 // EXTERNAL MODULE: ./styles/style.less

@@ -4,7 +4,7 @@
   import MultiValue from './MultiValue'
   import DeleteIcon from './icons/Delete'
   import ArrowIcon from './icons/Arrow'
-import { defineComponent, h } from 'vue'
+import { defineComponent } from 'vue'
 
   export default defineComponent({
     name: 'vue-treeselect--control',
@@ -140,26 +140,15 @@ import { defineComponent, h } from 'vue'
 
     render() {
       const { instance } = this
+      const ValueContainer = instance.single ? SingleValue : MultiValue
 
-      return h(
-        "div",
-        {
-          class: "vue-treeselect__control",
-          onMousedown() {
-            instance.handleMouseDown()
-          }
-        },
-        () => [
-          instance.single ? h(SingleValue, {ref: "value-container"}) : h(MultiValue, {ref: "value-container"}),
-          this.renderX(),
-          this.renderArrow()
-        ]
+      return (
+        <div class="vue-treeselect__control" onMousedown={instance.handleMouseDown}>
+          <ValueContainer ref="value-container" />
+          {this.renderX()}
+          {this.renderArrow()}
+        </div>
       )
-        // <div class="vue-treeselect__control" onMousedown={instance.handleMouseDown}>
-        //   <ValueContainer ref="value-container"/>
-        //   {this.renderX()}
-        //   {this.renderArrow()}
-        // </div>
     },
   })
 </script>
