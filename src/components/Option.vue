@@ -292,17 +292,17 @@
         <div class={listItemClass}>
           {this.renderOption()}
           {node.isBranch ? 
-          h(Transition,
+          (
+            <div name="vue-treeselect__list--transition">
+              {this.renderSubOptionsList()}
+            </div>
+          )
+          : ''}
+          {/* h(Transition,
             {
               name: "vue-treeselect__list--transition"
             },
             this.renderSubOptionsList
-          )
-          : ''}
-          {/* (
-            <transition name="vue-treeselect__list--transition">
-              {this.renderSubOptionsList()}
-            </transition>
           ) */}
         </div>
       )

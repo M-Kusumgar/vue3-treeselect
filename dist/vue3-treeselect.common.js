@@ -8268,6 +8268,7 @@ const MultiValueItem_exports_ = MultiValueItemvue_type_script_lang_js;
     }
   },
   render: function render() {
+    var _this = this;
     var renderValueContainer = this.$parent.renderValueContainer;
     // const transitionGroupProps = {
     //   props: {
@@ -8282,12 +8283,14 @@ const MultiValueItem_exports_ = MultiValueItemvue_type_script_lang_js;
       tag: "div",
       name: "vue-treeselect__multi-value-item--transition",
       appear: true
-    }, [this.renderMultiValueItems(), this.renderExceedLimitTip(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(Placeholder, {
-      key: "placeholder"
-    }), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(Input, {
-      ref: "input",
-      key: "input"
-    })])
+    }, function () {
+      return [_this.renderMultiValueItems(), _this.renderExceedLimitTip(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(Placeholder, {
+        key: "placeholder"
+      }), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["h"])(Input, {
+        ref: "input",
+        key: "input"
+      })];
+    })
     // <transition-group class="vue-treeselect__multi-value" tag="div" name="vue-treeselect__multi-value-item--transition" appear={true} >
     //   {this.renderMultiValueItems()}
     //   {this.renderExceedLimitTip()}
@@ -8767,6 +8770,25 @@ var Option = {
           'vue-treeselect__option-arrow--rotated': this.shouldExpand
         };
         return (
+          // h("div",
+          //   {
+          //     class: "vue-treeselect__option-arrow-container",
+          //     onMousedown() {
+          //       this.handleMouseDownOnArrow()
+          //     }
+          //   },
+          //   h(Transition,
+          //     {
+          //       name: "vue-treeselect__option-arrow--prepare",
+          //       appear: true
+          //     },
+          //     h(ArrowIcon,
+          //       {
+          //         class: arrowClass
+          //       }
+          //     )
+          //   )
+          // )
           Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", {
             "class": "vue-treeselect__option-arrow-container",
             "onMousedown": this.handleMouseDownOnArrow
@@ -8954,9 +8976,9 @@ var Option = {
     }, "vue-treeselect__indent-level-".concat(indentLevel), true);
     return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", {
       "class": listItemClass
-    }, [this.renderOption(), node.isBranch ? h(external_commonjs_vue_commonjs2_vue_root_Vue_["Transition"], {
-      name: "vue-treeselect__list--transition"
-    }, this.renderSubOptionsList) : '']);
+    }, [this.renderOption(), node.isBranch ? Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])("div", {
+      "name": "vue-treeselect__list--transition"
+    }, [this.renderSubOptionsList()]) : '']);
   }
 };
 
