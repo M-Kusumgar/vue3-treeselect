@@ -1,5 +1,5 @@
 {
-  "name": "@m-kusumgar/vue3-treeselect",
+  "name": "@reside-ic/vue3-treeselect",
   "version": "1.0.18",
   "description": "Fork from megafetis' vue3-treeselect",
   "main": "dist/vue3-treeselect.common.js",
